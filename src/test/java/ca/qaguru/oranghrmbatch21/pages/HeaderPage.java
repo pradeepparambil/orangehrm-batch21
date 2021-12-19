@@ -1,18 +1,24 @@
 package ca.qaguru.oranghrmbatch21.pages;
 
-import ca.qaguru.oranghrmbatch21.library.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HeaderPage extends PageBase {
+public class HeaderPage {
     private WebDriver driver;
     private String idMenu = "mainMenu";
 
     public HeaderPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
 
     public boolean isMenuVisible(){
-        return isElementVisible(By.id(idMenu));
+        try {
+            driver.findElement(By.id(idMenu));
+        }catch (Exception exc){
+            return false;
+        }
+
+        return true;
     }
+
 }
