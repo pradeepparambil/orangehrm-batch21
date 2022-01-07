@@ -42,7 +42,7 @@ public class JobTitleTests extends TestBase {
         jobTitle.clear();
         jobTitle.sendKeys("Software tester");
         driver.findElement(By.id("btnSave")).click();
-        Assert.assertTrue(true,"New job title is not edited");
+        Assert.assertTrue(true,"New job title is created");
         driver.quit();
 
 
