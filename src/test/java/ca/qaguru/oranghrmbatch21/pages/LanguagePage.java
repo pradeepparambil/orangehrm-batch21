@@ -3,24 +3,27 @@ package ca.qaguru.oranghrmbatch21.pages;
 import ca.qaguru.oranghrmbatch21.library.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class LanguagePage extends PageBase {
-    private static final String idBtnAdd = "btnAdd";
-    private static final String idTxtLanguage = "language_name";
-    private static final String idBtnSave = "btnSave";
-    private static final String idBtnCancel = "btnCancel";
-    private static final String idBtnDelete = "btnDel";
+    private final String idBtnAdd = "btnAdd";
+    private final String idTxtLanguage = "language_name";
+    private final String idBtnSave = "btnSave";
+    private final String idBtnCancel = "btnCancel";
+    private final String idBtnDelete = "btnDel";
+    private final String lnkLanguage = "//a[text()='XXX']";
+    private final String chkLanguage = "//a[text()='XXX']//preceding::input[@type='checkbox'][1]";
 
 
     public LanguagePage(WebDriver driver) {
         super(driver);
     }
-    public static String saveNewLanguage(String language_name) {
+    public  void saveNewLanguage(String language_name) {
         click(By.id(idBtnAdd));
         setText(By.id(idTxtLanguage), language_name);
         click(By.id(idBtnSave));
-        return language_name;
-
-
+        Assert.assertTrue(isElementVisible(By.xpath(lnkLanguage.replace("XXX",language_name))),"Language is not saved");
     }
+
+
 }
