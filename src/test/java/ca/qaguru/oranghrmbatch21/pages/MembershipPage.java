@@ -3,6 +3,7 @@ package ca.qaguru.oranghrmbatch21.pages;
 import ca.qaguru.oranghrmbatch21.library.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class MembershipPage extends PageBase {
@@ -13,7 +14,7 @@ public class MembershipPage extends PageBase {
     private final String idBtnSave = "btnSave";
     private final String idBtnCancel = "btnCancel";
     private final String idBtnDeleteOk = "dialogDeleteBtn";
-    private final String xpathDeleteMsg="//* [contains(text(),'Successfully Deleted')]";
+    private final String xpathDeleteMsg="//*[contains(text(),'Successfully Deleted')]";
     private final String expDeleteMsg ="Successfully Deleted";
     private final String xpathDeleteCancel = "//input[@class='btn reset' and @value='Cancel']";
     private final String xpathMembership="//a[contains(text(),'XXX')]";
@@ -52,7 +53,7 @@ public class MembershipPage extends PageBase {
             click(By.xpath(chkMembership.replace("XXX", membership)));
             click(By.id(idBtnDelete));
             click(By.id(idBtnDeleteOk));
-           // Assert.assertEquals(getText(By.xpath(xpathDeleteMsg)),expDeleteMsg, "Incorrect Error Message");
+           //Assert.assertEquals(getText(By.xpath(xpathDeleteMsg)),expDeleteMsg, "Incorrect Error Message");
             isMembershipVisible(membership,save);
 
         }
@@ -91,4 +92,19 @@ public class MembershipPage extends PageBase {
        }
 
        }
+
+    public void EditMembership(String membership, String newMembership, boolean save) {
+        if(isElementVisible(By.xpath(xpathMembership.replace("XXX", membership)))){
+            click(By.xpath(chkMembership.replace("XXX", membership)));
+            //WebElement name = driver.findElement(By.id(idTxtName));
+            click(By.xpath((xpathMembership.replace("XXX", membership))));
+            setText(By.id(idTxtName),newMembership);
+            click(By.id(idBtnSave));
+            isMembershipVisible(newMembership, save);
+
+        }
+
+
+
     }
+}
