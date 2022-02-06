@@ -15,14 +15,15 @@ import java.util.UUID;
 public class PayGradeTests extends TestBase {
 
     @Test
-    public void addNewPayGrade (){
+    public void addNewPayGrade () throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("admin","admin123",true,null);
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.selectMenu(MenuOptions.PAY_GRADES);
         PayGradePage payGradePage = new PayGradePage(driver);
         String uuid = UUID.randomUUID().toString();
-        payGradePage.saveNewPayGrade("Grade-"+uuid);
+        String PayGrade = "Grade-" +uuid;
+        payGradePage.saveNewPayGrade(PayGrade);
 
     }
 }
