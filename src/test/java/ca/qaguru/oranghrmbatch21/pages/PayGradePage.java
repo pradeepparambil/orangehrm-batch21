@@ -11,6 +11,8 @@ public class PayGradePage extends PageBase {
     private final String idBtnAdd = "btnAdd";
     private final String idPayGradeName ="payGrade_name";
     private final String idBtnSave = "btnSave";
+    private final String lnkPayGrade= "//a[text()='XXX']";
+    private final String chkPayGrade = "//a[text()='XXX']//preceding::input[@type='checkbox'][1]";
 
     public PayGradePage(WebDriver driver){
         super(driver);
@@ -19,6 +21,7 @@ public class PayGradePage extends PageBase {
         click(By.id(idBtnAdd));
         setText(By.id(idPayGradeName),name);
         click(By.id(idBtnSave));
+        Assert.assertTrue(isElementPresent(By.xpath(lnkPayGrade.replace("XXX",name))),"Paygrade Not Added");
     }
 
 }
