@@ -22,5 +22,4 @@ public class JobCategoryTest extends TestBase {
         jobCategoryPage.createJobCategory("IT Professionals");
     }
 
-
 }

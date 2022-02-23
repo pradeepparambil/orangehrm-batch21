@@ -18,12 +18,26 @@ public class LanguagePage extends PageBase {
     public LanguagePage(WebDriver driver) {
         super(driver);
     }
-    public  void saveNewLanguage(String language_name) {
+
+    public void saveNewLanguage(String language_name) {
         click(By.id(idBtnAdd));
         setText(By.id(idTxtLanguage), language_name);
         click(By.id(idBtnSave));
-        Assert.assertTrue(isElementVisible(By.xpath(lnkLanguage.replace("XXX",language_name))),"Language is not saved");
+        Assert.assertTrue(isElementVisible(By.xpath(lnkLanguage.replace("XXX", language_name))), "Language is not saved");
+
     }
 
+    public void DeleteLanguage(String language_name) {
+        click(By.xpath(chkLanguage.replace("XXX", language_name)));
+        //Assert.assertFalse(click(By.xpath(chkLanguage.replace("XXX", language_name))));
+        click(By.id(idBtnDelete));
+        }
 
+    public void EditLanguage(String language_name) {
+        click(By.xpath(lnkLanguage.replace("XXX", language_name)));
+        setText(By.id(idTxtLanguage), language_name);
+        click(By.id(idBtnSave));
+        Assert.assertTrue(isElementVisible(By.xpath(lnkLanguage.replace("XXX", language_name))), "Language is not saved");
+
+    }
 }
