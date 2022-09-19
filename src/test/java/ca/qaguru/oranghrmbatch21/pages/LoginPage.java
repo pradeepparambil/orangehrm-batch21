@@ -8,9 +8,9 @@ import org.testng.Assert;
 
 public class LoginPage extends PageBase {
 
-    private String idUsername = "txtUsername";
-    private String idPassword = "txtPassword";
-    private String idLogin = "btnLogin";
+    private String idUsername = "username";
+    private String idPassword = "password";
+    private String idLogin = "//button[@type='submit']";
     private String idErrMsg = "spanMessage";
 
     public LoginPage(WebDriver driver) {
@@ -18,9 +18,9 @@ public class LoginPage extends PageBase {
     }
 
     public void login(String username, String password, boolean validCredentials, String expErrMsg){
-        setText(By.id(idUsername), username);
-        setText(By.id(idPassword),password);
-        click(By.id(idLogin));
+        setText(By.name(idUsername), username);
+        setText(By.name(idPassword),password);
+        click(By.xpath(idLogin));
 
         HeaderPage headerPage = new HeaderPage(driver);
         if(validCredentials){
