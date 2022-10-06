@@ -5,7 +5,7 @@
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="ca.qaguru.oranghrmbatch21.tests.EducationTests" />
-            <class name="ca.qaguru.oranghrmbatch21.tests.JobCategoryTest"></class>
+           <!-- <class name="ca.qaguru.oranghrmbatch21.tests.JobCategoryTest"></class>-->
         </classes>
     </test>
 
@@ -13,7 +13,7 @@
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="ca.qaguru.oranghrmbatch21.tests.EducationTests" />
-            <class name="ca.qaguru.oranghrmbatch21.tests.JobCategoryTest"></class>
+            <!--<class name="ca.qaguru.oranghrmbatch21.tests.JobCategoryTest"></class>-->
         </classes>
     </test>
 
