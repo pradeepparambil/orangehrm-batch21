@@ -14,7 +14,8 @@ import java.util.List;
 
 @Slf4j
 public class HeaderPage extends PageBase {
-    private String lblWelcome = "//*[@id='welcome']";
+   // private String lblWelcome = "//*[@id='welcome']";
+    private String xpathHeaderPanel="//div [@class='oxd-topbar-header-title']";
     private String mnuItem ="//*[@class='oxd-main-menu']//descendant::*[text()='XXX']";
     private String mnuItem1 ="//*[@class='oxd-topbar-body-nav']//descendant::*[contains(text(),'XXX')]";
 
@@ -24,7 +25,7 @@ public class HeaderPage extends PageBase {
     }
 
     public void assertWelcomeMessage(){
-        Assert.assertTrue(isElementVisible(By.xpath(lblWelcome)),"Login not successful");
+        Assert.assertTrue(isElementVisible(By.xpath(xpathHeaderPanel)),"Login not successful");
     }
     public void selectMenu(String menu){//Admin|Job|Job Title
         List<String> menuItems = Arrays.asList(menu.split("\\|"));
