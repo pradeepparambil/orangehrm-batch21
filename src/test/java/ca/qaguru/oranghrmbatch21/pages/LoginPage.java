@@ -8,26 +8,26 @@ import org.testng.Assert;
 
 public class LoginPage extends PageBase {
 
-    private String idUsername = "txtUsername";
-    private String idPassword = "txtPassword";
-    private String idLogin = "btnLogin";
-    private String idErrMsg = "spanMessage";
+    private String xpathUsername = "//input[@name='username']";
+    private String xpathPassword = "//input[@name='password']";
+    private String xpathLogin = "//button[@type='submit']";
+    private String xpathErrMsg = "//div[@role='alert']";
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public void login(String username, String password, boolean validCredentials, String expErrMsg){
-        setText(By.id(idUsername), username);
-        setText(By.id(idPassword),password);
-        click(By.id(idLogin));
+        setText(By.xpath(xpathUsername), username);
+        setText(By.xpath(xpathPassword),password);
+        click(By.xpath(xpathLogin));
 
         HeaderPage headerPage = new HeaderPage(driver);
         if(validCredentials){
             Assert.assertTrue(headerPage.isMenuVisible());
         }else {
             Assert.assertFalse(headerPage.isMenuVisible());
-            Assert.assertEquals(getText(By.id(idErrMsg)),expErrMsg, "Incorrect Error Message");
+            Assert.assertEquals(getText(By.xpath(xpathErrMsg)),expErrMsg, "Incorrect Error Message");
         }
     }
 
